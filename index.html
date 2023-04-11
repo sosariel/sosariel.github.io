@@ -1,1 +1,167 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ariel Sosa</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/ad0cde257c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div id="container1">
+            <nav>
+                <ul class="menu" id="sidemenu">
+                    <li id="item1"><a href="#header">Home</a></li>
+                    <li id="item2"><a href="#about">About</a></li>
+                    <li id="item3"><a href="#portfolio">Portfolio</a></li>
+                    <li id="item4"><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars menu-icon" id="menuIcon" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Junior Software Developer</p>
+                <h1 id="text">Hi, I'm <span>Ariel Sosa</span> From Austin, TX</h1>
+                
+                <script src="script.js"></script>
+            </div>
+        </div>
+    </div>
+    <!-- -----about------ -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/ProHeadshot.jpg">
+                </div>
+                <div class="about-col-2">
+                    <h2 class="sub-title">About Me</h2>
+                    <p>Software developer with a background in architectural design bringing valuable skills in attention to detail, problem-solving, and teamwork to the industry. Continuously learning new technologies and software development methodologies to produce creative and user-friendly software. In pursuit of opportunities to grow professionally and contribute to the success of innovative tech projects.</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Object-Oriented Programming</span><br>Java</li>
+                            <li><span>Web Application Development</span><br>HTML, CSS, JavaScript, Spring Boot, Vue.js</li>
+                            <li><span>Database Programming</span><br>JDBC, Table Design, SQL, PostgreSQL, E/R diagrams</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2023</span><br>Tech Elevator<br>Java Web Application Development Bootcamp</li>
+                            <li><span>2017-2022</span><br>University of Houston<br>Bachelor of Architecture</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <!-- -----Portfolio------ -->
+    <div id="portfolio">
+        <div class="container">
+             <h2 class="sub-title">Portfolio</h2>
+             <div class="work-list">
+                <div class="work">
+                    <img src="images/vending.jpg">
+                    <div class="layer">
+                        <h3>Vending Machine App</h3>
+                        <P>Vending machine application with a command line interface in Java using OOP principles and File I/O.</P>
+                        <a href="https://github.com/sosariel/VendingMachine"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/tenmologo.jpg">
+                    <div class="layer">
+                        <h3>TEnmo</h3>
+                        <P>Money transfer application using MVC pattern and RESTful APIs. Server-side employs Spring framework and PostgreSQL.</P>
+                        <a href="https://github.com/sosariel/TEnmo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/bookcase.png">
+                    <div class="layer">
+                        <h3>Library Management System</h3>
+                        <P>Java CLI application for borrowing and returning some books.</P>
+                        <a href="https://github.com/sosariel/Library"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -----Contact------ -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h2 class="sub-title">Contact Me</h2>
+                    <p><i class="fa-solid fa-paper-plane"></i>    sosariel98@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/sosariel/"><i class="fa-brands fa-linkedin"></i></a>
+                        
+                    </div>
+                    <a href="" class="btn btn2">Download CV</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link")
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        var menuIcon = document.getElementById("menu-icon");
+
+        function openmenu(){
+            sidemenu.style.right = "0";
+            document.getElementById("menuIcon").classList.add("hide");
+        }
+
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+            setTimeout(function () {
+                document.getElementById("menuIcon").classList.remove("hide");
+            }, 500);
+            }
+
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwonITQN5l7RpYDLjPNNrmIgfPV8XYNMPTMrZpXWNDD8wtLGxznT2dMic7QCpL9INGVsA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
